@@ -1,6 +1,4 @@
-//website_url--use this to link for them to visit
-
-//find breweries in your area by name or city/zip code search then provide link to their email data[6].website_url click to learn more, or address/location, need to address null if name/website are null see veggies checker api
+//find breweries in your area by entering city retunrs list of breweries with info/zip code search then provide link to their email data[6].website_url click to learn more, or address/location, need to address null if name/website are null see veggies checker api
 
 document.querySelector("button").addEventListener("click", getBrewery);
 
@@ -9,25 +7,36 @@ function getBrewery() {
   // const url = `https://api.openbrewerydb.org/v1/breweries?by_city=${brew}`;
   // // https://api.openbrewerydb.org/v1/breweries?by_state=ohio&sort=type,name:asc&per_page=3
   const url = `https://api.openbrewerydb.org/v1/breweries/search?query=${brew}`;
+  ///see mdn table dom explanation or MW video to set up table format of listing
 
   fetch(url)
     .then((res) => res.json()) // parse response as JSON
     .then((data) => {
       console.log(data);
-      ///loops through arrays of input given
-      for (let i = 0; i < data.length; i++) {
-        console.log(data[i]);
-        let brewName = document.querySelector("#brewName");
-        let brewAddress = document.querySelector(".address");
-        let brewCity = document.querySelector(".city");
-        let brewState = document.querySelector(".state");
-        let brewInfo = document.querySelector("a[href]");
-        brewName.innerText = data[0].name;
-        brewAddress.innerText = data[0].address_1;
-        brewCity.innerText = data[0].city;
-        brewState.innerText = data[0].state;
-        ///may have to createElement to make it work -link returns 404 error
-        brewInfo.innerText = data[0].website_url;
+      show(data);
+
+      // Function to define innerHTML for HTML table
+      function show(data) {
+        let tab = `<tr>
+             <th>Name</th>
+             <th>Address</th>
+             <th>City</th>
+             <th>State</th>
+             <th>Website:</th>
+            </tr>`;
+
+        // Loop to access all rows
+        for (let r of data) {
+          tab += `<tr> 
+       <td>${r.name}</td>
+       <td>${r.address_1}</td>
+       <td>${r.city}</td> 
+       <td>${r.state}</td>     
+       <td><a  target="_blank" href="${r.website_url}">${r.website_url}</a></td>    
+   </tr>`;
+        }
+        // Setting innerHTML as tab variable
+        document.getElementById("beer-table").innerHTML = tab;
       }
     })
     .catch((err) => {
@@ -35,36 +44,10 @@ function getBrewery() {
     });
 }
 
-///see mdn table dom explanation or MW video to set up table format of listing
+// <a href="example.html"><tr><td>example table data</td></tr></a>
+// <a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a>
 
-function generateTable() {
-  // creates a <table> element and a <tbody> element
-  const tbl = document.createElement("table");
-  const tblBody = document.createElement("tbody");
-
-  // creating all cells
-  for (let i = 0; i < 2; i++) {
-    // creates a table row
-    const row = document.createElement("tr");
-
-    for (let j = 0; j < 2; j++) {
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-      const cell = document.createElement("td");
-      const cellText = document.createTextNode(`cell in row ${i}, column ${j}`);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-    }
-
-    // add the row to the end of the table body
-    tblBody.appendChild(row);
-  }
-
-  // put the <tbody> in the <table>
-  tbl.appendChild(tblBody);
-  // appends <table> into <body>
-  document.body.appendChild(tbl);
-  // sets the border attribute of tbl to '2'
-  tbl.setAttribute("border", "2");
-}
+// Asheville
+//Decatour
+//Waynesville
+//Sylva

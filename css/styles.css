@@ -28,7 +28,7 @@ body {
   align-content: start;
   align-items: center;
   /*   height: 100vh; */
-  overflow: hidden;
+  /*   overflow: hidden; */
   margin: 0;
   padding: 20px;
 }
@@ -77,4 +77,15 @@ button:active {
 
 button:focus {
   outline: 0;
+}
+
+table {
+  margin: 20px auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  background-color: white;
 }
