@@ -6,7 +6,7 @@ I love beer and always eager to sample local beverages when I am somewhere new. 
 application to give beer enthusiasts an option to search by city for local breweries with location and
 website details in an easy to read table format.
 
-Link to project: []
+Link to project: [https://mrileyclark.github.io/beerfinder/]
 
 Shape alt tag 
 
