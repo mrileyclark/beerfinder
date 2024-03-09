@@ -8,7 +8,7 @@ website details in an easy to read table format.
 
 Link to project: [https://mrileyclark.github.io/beerfinder/]
 
-<img src="https://github.com/mrileyclark/beerfinder/blob/main/beerfinder.png" width="600" height="300">
+<img src="https://github.com/mrileyclark/beerfinder/blob/main/beerfinder.png" width="60%" height="50%">
 
 ****
 
