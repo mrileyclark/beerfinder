@@ -8,7 +8,7 @@ website details in an easy to read table format.
 
 Link to project: [https://mrileyclark.github.io/beerfinder/]
 
-Shape alt tag 
+<img src="https://github.com/mrileyclark/Landing-Page-with-Countdown/blob/main/records-project.png" width="600" height="300">
 
 ****
 
