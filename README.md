@@ -1,4 +1,4 @@
-# Beer Finder API  
+# Beer Finder API 🍻
 
 ****
 
